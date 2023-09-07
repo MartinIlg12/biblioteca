@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/libros">Libros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/libro/form">Formulario Libros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/autores">Autores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container mt-3">
+    <h2>Hover Rows</h2>
+    <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Fecha Publicación</th>
+            <th>Autor </th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item: ${libros}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.titulo}"></td>
+            <td th:text="${item.publicacion}"></td>
+            <td th:text="${item.editorial}"></td>
+
+            <td th:text="${item.autor.nombre} + ${item.autor.apellido}"></td>
+            <td>
+                <a href="" class="btn btn-success">Editar</a>
+                <a href="" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
